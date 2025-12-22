@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Restaurant</title>
+  <link rel="stylesheet" href="restaurant.css">
+</head>
+<body>
+
+<div class="page">
+  <div class="card">
+    <h1>Add Restaurant</h1>
+    <p class="subtitle">Register your restaurant details</p>
+
+    <form id="restaurantForm">
+      <input type="text" id="name" placeholder="🍽️ Restaurant Name" required />
+      <input type="text" id="location" placeholder="📍 Location" required />
+      <input type="text" id="imageUrl" placeholder="🖼️ Image URL" required />
+
+      <button type="submit">➕ Add Restaurant</button>
+
+<button type="button" class="home-btn" onclick="goHome()">
+  🏠 Home
+</button>
+    </form>
+
+    <p id="message"></p>
+  </div>
+</div>
+
+<script src="restaurant.js"></script>
+</body>
+</html>

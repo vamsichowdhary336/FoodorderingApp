@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Food Item</title>
+    <link rel="stylesheet" href="add-food-item.css">
+</head>
+<body>
+
+<div class="page">
+    <div class="card">
+        <h1>Add Food Item</h1>
+        <p class="subtitle">Add menu items to your restaurant</p>
+
+        <form id="foodForm">
+            <input type="text" id="name" placeholder="🍔 Food Item Name" required />
+            <input type="number" id="price" placeholder="💰 Price" required />
+            <input type="text" id="imageUrl" placeholder="🖼️ Image URL" required />
+            <input type="text" id="restaurantName" placeholder="🍽️ Restaurant Name" required />
+
+            <button type="submit">➕ Add Food Item</button>
+
+            <button type="button" class="home-btn" onclick="goHome()">🏠 Home</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+</div>
+
+<script src="add-food-item.js"></script>
+</body>
+</html>
