@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+    <!-- TITLE CENTER -->
+    <h1 class="cart-title">🛒 Your Cart</h1>
+
+    <!-- CART ITEMS -->
+    <div class="cart-container" id="cartContainer">
+        <!-- Cart cards will load here -->
+    </div>
+
+    <!-- BACK BUTTON -->
+    <div class="back-wrapper">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+</div>
+
+<div id="billBox" class="bill-box">
+    <div class="bill-inner">
+
+        <div class="total-text">
+            Total: ₹ <span id="totalAmount">0</span>
+        </div>
+
+        <!-- ✅ ADD ADDRESS HERE -->
+        <input
+            type="text"
+            id="address"
+            class="address-input"
+            placeholder="Enter delivery address"
+            required
+        />
+
+        <button class="place-btn" onclick="placeOrder()">
+            PLACE ORDER
+        </button>
+
+    </div>
+</div>
+
+
+
+    <script src="cart.js"></script>
+
+</body>
+</html>

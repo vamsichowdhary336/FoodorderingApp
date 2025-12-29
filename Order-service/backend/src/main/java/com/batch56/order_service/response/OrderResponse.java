@@ -13,5 +13,6 @@ public class OrderResponse {
 	private String restaurantName;
 	private String foodItemName;
 	private String customerName;
+	private String address;
 
 }

@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    color: gray;
+    margin-bottom: 25px;
+}
+
+.card button {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #ff5e62;
+    color: white;
+}
+
+.card button:hover {
+    background: #ff3b3f;
+}
+
+.logout {
+    background: #333;
+}
+
+.logout:hover {
+    background: #000;
+}
+.btn {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #ff5e62;
+    color: white;
+
+    display: flex;              /* ✅ FIX */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;                  /* space between icon & text */
+}
+
+.icon {
+    width: 22px;                /* ✅ equal width */
+    text-align: center;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background: #ff3b3f;
+}
+
+.logout {
+    background: #ff7a7a;   /* lighter red */
+}
+
+.logout:hover {
+    background: #ff5e62;   /* same hover as others */
+}

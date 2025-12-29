@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FoodItemResponse {
 
+	private Long id;
 	private String name;
 	private double price;
 	private String imageUrl;

@@ -23,7 +23,10 @@ public class Order {
 	private Long restaurantId;
 	private Long foodItemId;
 
+	private String foodItemName;
+	private double price;
+	private String imageUrl;
+
 	private String customerName;
 	private String address;
-
 }

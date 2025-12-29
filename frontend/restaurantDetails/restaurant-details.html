@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Details</title>
+    <link rel="stylesheet" href="restaurant-details.css">
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <img id="restaurantImage" src="/images/KFC.jpg" alt="Restaurant">
+</div>
+
+<!-- INFO CARD -->
+<div class="info">
+    <h1 id="restaurantName">Restaurant</h1>
+    <p id="restaurantLocation">Location</p>
+</div>
+
+<!-- MENU -->
+<div class="menu-section">
+    <h2 class="menu-title">Menu</h2>
+    <div id="menuContainer" class="menu-container">
+        <!-- Food cards will come here -->
+         
+    </div>
+    
+</div>
+
+<!-- ACTION BUTTONS -->
+<div class="actions">
+    <button id="addFoodBtn" class="primary add-btn" onclick="goToAddFood()">
+        ➕ Add Food Item
+    </button>
+
+    <button class="back-btn" onclick="goBack()">
+        ← Back
+    </button>
+    <button id="viewCartBtn" class="primary" onclick="goToCart()">
+    🛒 View Cart
+</button>
+</div>
+
+<script src="restaurant-details.js"></script>
+</body>
+</html>
