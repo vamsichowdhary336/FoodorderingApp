@@ -1,9 +1,12 @@
 package com.batch56.order_service.config;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.batch56.order_service.response.FoodItemResponse;
 import com.batch56.order_service.response.FoodItems;
 import com.batch56.order_service.response.Restaurant;
 
@@ -18,12 +21,10 @@ public interface RestaurantClient {
 	@GetMapping("/api/v1/restaurant/by-id/{id}")
 	Restaurant getRestaurantById(@PathVariable Long id);
 
-	// get food item by id
-	@GetMapping("/api/v1/restaurant/by-itemId/{id}")
-	FoodItems getFoodItemById(@PathVariable Long id);
+	@GetMapping("/api/v1/restaurant/fooditem/by-id/{id}")
+	FoodItemResponse getFoodItemById(@PathVariable("id") Long id);
 
 	// get food item(s) by name
 	@GetMapping("/api/v1/restaurant/by-item/{name}")
-	Object getFoodItemByName(@PathVariable String name);
-
+	List<FoodItems> getFoodItemByName(@PathVariable String name);
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.batch56.restaurant_service.Response.FoodItemResponse;
@@ -18,8 +19,11 @@ import com.batch56.restaurant_service.Response.ListOfFoodItemsByRestName;
 import com.batch56.restaurant_service.Response.RestaurantResponse;
 import com.batch56.restaurant_service.model.FoodItems;
 import com.batch56.restaurant_service.model.Restaurant;
+import com.batch56.restaurant_service.model.Role;
+import com.batch56.restaurant_service.model.Users;
 import com.batch56.restaurant_service.repo.FoodItemsRepo;
 import com.batch56.restaurant_service.repo.RestaurantRepo;
+import com.batch56.restaurant_service.repo.UserRepo;
 import com.batch56.restaurant_service.service.RestaurantService;
 
 @CrossOrigin(origins = { "*", "null" })
@@ -35,12 +39,19 @@ public class RestaurantController {
 
 	@Autowired
 	FoodItemsRepo fooditemsrepo;
+	@Autowired
+	UserRepo userRepo;
 
-	// Adding restaurant
 	@PostMapping("/addRestaurant")
-	public ResponseEntity<String> addRestaurant(@RequestBody Restaurant rst) {
-		restaurantservice.addRestaurants(rst);
-		return ResponseEntity.ok("Restaurant added successfully");
+	public Restaurant addRestaurant(@RequestBody Restaurant restaurant, @RequestParam String username) {
+
+		Users user = userRepo.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
+
+		if (user.getRole() != Role.ADMIN) {
+			throw new RuntimeException("Only ADMIN can add restaurant");
+		}
+
+		return restaurantservice.addRestaurants(restaurant);
 	}
 
 	// Adding fooditem
@@ -69,13 +80,16 @@ public class RestaurantController {
 	}
 
 	@GetMapping("/by-id/{id}")
-	public ResponseEntity<Restaurant> getRestaurantById(@PathVariable Long id) {
-		return restaurantrepo.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+	public Restaurant getRestaurantById(@PathVariable Long id) {
+		return restaurantrepo.findById(id).orElseThrow(() -> new RuntimeException("Restaurant not found"));
 	}
 
-	@GetMapping("/by-itemId/{id}")
-	public FoodItems getFoodItemById(@PathVariable Long id) {
-		return fooditemsrepo.findById(id).orElseThrow(() -> new RuntimeException("Food item not found with id: " + id));
+	@GetMapping("/fooditem/by-id/{id}")
+	public FoodItemResponse getFoodItemById(@PathVariable Long id) {
+		FoodItems item = fooditemsrepo.findById(id).orElseThrow(() -> new RuntimeException("Food item not found"));
+
+		return new FoodItemResponse(item.getId(), item.getName(), item.getPrice(), item.getImageUrl(),
+				item.getRestaurant().getName());
 	}
 
 	// get item by name
