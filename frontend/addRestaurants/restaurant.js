@@ -29,5 +29,5 @@ document.getElementById("restaurantForm").addEventListener("submit", function (e
 
 // Home button
 function goHome() {
-    window.location.href = "../home/home.html";
+  window.location.href = "../adminHome/admin-home.html";
 }
