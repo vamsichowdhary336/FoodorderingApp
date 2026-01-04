@@ -83,6 +83,7 @@ GET    /api/v1/restaurant/item/{name}
 POST   /api/v1/order/addorder
 GET    /api/v1/order/getorderDetails/{customerName}
 ```
+## 📸 Screenshots
 ## 🔐 User Login Page
 <img width="1390" height="851" alt="Screenshot 2025-12-30 121440" src="https://github.com/user-attachments/assets/31735163-e604-4e9e-8c1b-52fa50b1ba5d" /><br>
 ## 👤 User Dashboard
